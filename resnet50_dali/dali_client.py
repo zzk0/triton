@@ -7,7 +7,7 @@ from PIL import Image
 if __name__ == '__main__':
     triton_client = httpclient.InferenceServerClient(url='172.17.0.2:8000')
 
-    image = Image.open('cat.jpg')
+    image = Image.open('../resources/images/cat.jpg')
     image = np.asarray(image)
     image = np.expand_dims(image, axis=0)
     image = image.astype(np.float32)
