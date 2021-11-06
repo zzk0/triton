@@ -21,4 +21,3 @@ if __name__ == '__main__':
     results = triton_client.infer('resnet50_dali', inputs=inputs, outputs=outputs)
     output_data0 = results.as_numpy('DALI_OUTPUT_0')
     print(output_data0.shape)
-    print(output_data0)

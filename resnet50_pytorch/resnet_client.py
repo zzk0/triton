@@ -9,9 +9,6 @@ if __name__ == '__main__':
 
     image = Image.open('cat.jpg')
     
-    # replace with DALI Backend just for learning pipeline
-    # the resized images maybe smaller, thus reduce network transimssion
-    # the preprocess will do in the server side using DALI
     image = image.resize((224, 224), Image.ANTIALIAS)
     image = np.asarray(image)
     image = image / 255
