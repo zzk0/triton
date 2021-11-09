@@ -5,7 +5,7 @@ from PIL import Image
 
 
 if __name__ == '__main__':
-    triton_client = httpclient.InferenceServerClient(url='172.17.0.2:8000')
+    triton_client = httpclient.InferenceServerClient(url='127.0.0.1:8000')
 
     image = Image.open('../resources/images/cat.jpg')
     image = np.asarray(image)
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     inputs.append(httpclient.InferInput('ENSEMBLE_INPUT_0', image.shape, "FP32"))
     inputs[0].set_data_from_numpy(image, binary_data=False)
     outputs = []
-    outputs.append(httpclient.InferRequestedOutput('ENSEMBLE_OUTPUT_0', binary_data=False, class_count=1))
+    outputs.append(httpclient.InferRequestedOutput('ENSEMBLE_OUTPUT_0', binary_data=False, class_count=10))
 
     results = triton_client.infer('resnet50_ensemble', inputs=inputs, outputs=outputs)
     output_data0 = results.as_numpy('ENSEMBLE_OUTPUT_0')

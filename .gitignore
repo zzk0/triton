@@ -2,3 +2,4 @@
 *.dali
 *.jpg
 .vscode/
+*.pyc

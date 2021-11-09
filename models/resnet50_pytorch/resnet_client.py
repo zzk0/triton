@@ -20,7 +20,7 @@ if __name__ == '__main__':
     inputs.append(httpclient.InferInput('INPUT__0', image.shape, "FP32"))
     inputs[0].set_data_from_numpy(image, binary_data=False)
     outputs = []
-    outputs.append(httpclient.InferRequestedOutput('OUTPUT__0', binary_data=False, class_count=1))
+    outputs.append(httpclient.InferRequestedOutput('OUTPUT__0', binary_data=False, class_count=3))
 
     results = triton_client.infer('resnet50_pytorch', inputs=inputs, outputs=outputs)
     output_data0 = results.as_numpy('OUTPUT__0')
