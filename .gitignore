@@ -1,5 +1,12 @@
 *.pt
+*.plan
 *.dali
-*.jpg
+*.pb
+*.onnx
+*.engine
+*tar.gz
+
 .vscode/
 *.pyc
+*.jpg
+*.png
