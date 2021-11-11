@@ -1,0 +1,51 @@
+name: "example_python"
+backend: "python"
+input [
+  {
+    name: "INPUT0"
+    data_type: TYPE_FP32
+    dims: [ 4 ]
+  }
+]
+input [
+  {
+    name: "INPUT1"
+    data_type: TYPE_FP32
+    dims: [ 4 ]
+  }
+]
+output [
+  {
+    name: "OUTPUT0"
+    data_type: TYPE_FP32
+    dims: [ 4 ]
+  }
+]
+output [
+  {
+    name: "OUTPUT1"
+    data_type: TYPE_FP32
+    dims: [ 4 ]
+  }
+]
+
+instance_group [
+  { 
+    count: 2
+    kind: KIND_CPU
+  }
+]
+
+model_repository_agents
+{
+  agents [
+    {
+      name: "checksum",
+      parameters
+      {
+        key: "MD5:1/model.py",
+        value: "4e2c177998feb5539d8ec8d820f990bd"
+      }
+    }
+  ]
+}
