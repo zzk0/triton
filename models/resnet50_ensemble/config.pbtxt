@@ -43,3 +43,18 @@ ensemble_scheduling {
     }
   ]
 }
+
+model_warmup  [
+  {
+    name: "random_input"
+    batch_size: 1
+    inputs: {
+      key: "ENSEMBLE_INPUT_0"
+      value: {
+        data_type: TYPE_FP32
+        dims: [768, 768, 3]
+        zero_data: true
+      }
+    }
+  }
+]

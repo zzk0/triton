@@ -1,4 +1,4 @@
-name: "example_python"
+name: "example_python_d"
 backend: "python"
 input [
   {
@@ -30,8 +30,21 @@ output [
 ]
 
 instance_group [
-  { 
-    count: 10
+  {
+    count: 2
     kind: KIND_CPU
+    rate_limiter {
+      resources [
+        {
+          name: "R1"
+          count: 4
+        },
+        {
+          name: "R2"
+          count: 6
+        }
+      ] 
+      priority: 10
+    }
   }
 ]
