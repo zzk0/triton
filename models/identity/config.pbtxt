@@ -1,0 +1,25 @@
+name: "identity"
+backend: "identity"
+max_batch_size: 1
+input [
+  {
+    name: "INPUT0"
+    data_type: TYPE_FP32
+    dims: [ 10 ]
+  }
+]
+output [
+  {
+    name: "OUTPUT0"
+    data_type: TYPE_FP32
+    dims: [ 10 ]
+  }
+]
+
+instance_group [
+  { 
+    count: 1
+    kind: KIND_CPU
+  }
+]
+
